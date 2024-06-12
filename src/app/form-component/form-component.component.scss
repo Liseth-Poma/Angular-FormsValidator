@@ -1,0 +1,95 @@
+$form-bg-color: #e8f2ff;
+$input-border-color: #ccc;
+$input-focus-border-color: #007bff;
+$error-color: #dc3545;
+$success-color: #28a745;
+$font-family: Arial, sans-serif;
+
+form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: $form-bg-color;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: $font-family;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid $input-border-color;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: $font-family;
+
+  &:focus {
+    border-color: $input-focus-border-color;
+    outline: none;
+    box-shadow: 0 0 5px rgba($input-focus-border-color, 0.5);
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+h1{
+    text-align: center;
+}
+
+small {
+  color: $error-color;
+  font-size: 0.875rem;
+}
+
+.re-captcha {
+  margin-top: 1rem;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.25rem;
+  color: white;
+  background-color: $success-color;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+
+  &:hover {
+    background-color: darken($success-color, 10%);
+  }
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+
+.radio-group label {
+  margin-right: 1rem;
+  font-size: 1rem;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.error {
+  border-color: $error-color;
+}
+
+.success {
+  border-color: $success-color;
+}

@@ -1,0 +1,70 @@
+<form [formGroup]="form" (ngSubmit)="save($event)">
+    <h1>Formulario</h1>
+    <p>
+        Nombre: <br>
+        <input type="text" formControlName="name">
+    </p>
+    <div *ngIf="form.get('name')?.errors && form.get('name')?.touched ">
+        <small *ngIf="form.get('name')?.hasError('required')">Este es un campo requerido</small>
+    </div>
+    <p>
+        Fecha: <br>
+        <input type="date" formControlName="date">
+    </p>
+    <div *ngIf="form.get('date')?.errors && form.get('date')?.touched ">
+        <small *ngIf="form.get('date')?.hasError('required')">Este es un campo requerido</small>
+    </div>
+    <p>
+        Email: <br>
+        <input type="text" formControlName="email">
+    </p>
+    <div *ngIf="form.get('email')?.errors && form.get('email')?.touched ">
+        <small *ngIf="form.get('email')?.hasError('required')">Este es un campo requerido</small>
+    </div>
+
+    Texto Largo: <br>
+    <textarea formControlName="text" cols="30" rows="10"></textarea>
+    <small>{{this.form.get('text')?.value.length}}/200</small>
+
+    <div *ngIf="form.get('text')?.errors && form.get('text')?.touched ">
+        <small *ngIf="form.get('text')?.hasError('required')">Este es un campo requerido</small>
+        <small *ngIf="form.get('text')?.hasError('maxLength')">Máximo 200 caracteres</small>
+    </div>
+
+
+    <p>
+        Categoría: <br>
+        <select formControlName="category" cols="30" rows="10">
+            <option value="1" selected>Categoría 1</option>
+            <option value="2">Categoría 2</option>
+            <option value="3"> Categoría 3</option>
+        </select>
+    </p>
+    <div *ngIf="form.get('category')?.errors && form.get('category')?.touched ">
+        <small *ngIf="form.get('category')?.hasError('required')">Este es un campo requerido</small>
+    </div>
+
+    <p>
+        Genero: <br>
+        <input type="radio" name="gender" formControlName="gender" value="male"> Hombre <br>
+        <input type="radio" name="gender" formControlName="gender" value="female"> Mujer <br>
+        <input type="radio" name="gender" formControlName="gender" value="other"> Otro <br>
+
+    </p>
+    <div *ngIf="form.get('gender')?.errors && form.get('gender')?.touched ">
+        <small *ngIf="form.get('gender')?.hasError('required')">Este es un campo requerido</small>
+    </div>
+
+    <p>
+        Términos y Condiciones
+    </p>
+    <p>
+        <re-captcha (resolved)="resolved($event)" siteKey="6LeytfYpAAAAAH0lvhZb5DGSj0UAxiRtLdq-4eWt"></re-captcha>
+    </p>
+    <div *ngIf="!captchaValid && form.get('captcha')?.touched" class="text-danger">
+        <small>Completa el reCAPTCHA</small>
+    </div>
+    <br>
+
+    <button type="submit">Guardar</button>
+</form>
